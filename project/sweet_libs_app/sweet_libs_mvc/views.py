@@ -23,4 +23,6 @@ class PollPageView(TemplateView):
 	template_name = "poll.html"
 
 class ResultsPageView(TemplateView):
-    template_name = "results.html"
+    def get(self, request, **kwargs):
+        questions = Question.objects.all()
+        return render(request, 'results.html', {'Question' : questions})

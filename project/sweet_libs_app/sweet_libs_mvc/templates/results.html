@@ -7,9 +7,16 @@
   </head>
   <body>
     <p>This is paragraph</p>
-
+    {% for question in Question %}
+      {{question.question_text}}<br>
+    {% endfor %}
+    {% for choice in Choice %}
+      {{choice}}<br>
+    {% endfor %}
     <script>
       d3.select("p").text("Hello world")
+
+
     </script>
   </body>
 </html>
