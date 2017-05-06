@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <script src="https://d3js.org/d3.v4.js"></script>
-  </head>
-  <body>
-    <p>This is paragraph</p>
-    {% for question in Question %}
-      {{question.question_text}}<br>
-    {% endfor %}
+ <html>
+     <head>
+         <meta charset="utf-8">
+         <title>Poller!</title>
+         <!-- http://materializecss.com/ -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+         <link rel="stylesheet" type="text/css" href="/static/style.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+         <script src="https://d3js.org/d3.v4.js"></script>
+         <style media="screen">
+           body {
+             background: url("http://wallpapercave.com/wp/4CWzZcW.png")
+           }
+         </style>
+     </head>
+     <body>
+
+       <nav>
+         <div class="nav-wrapper">
+           <a href="/" class="brand-logo">Home</a>
+           <ul id="nav-mobile" class="right hide-on-med-and-down">
+             <li><a href="/admin/">Login</a></li>
+           </ul>
+         </div>
+       </nav>
+
+       <p>This is paragraph</p>
+       {% for question in Question %}
+       {{question.question_text}}<br>
+       {% endfor %}
+
     <script>
       d3.select("p").text("Hello world")
 
 
     </script>
-  </body>
-</html>
+
+    </body>
+ </html>
