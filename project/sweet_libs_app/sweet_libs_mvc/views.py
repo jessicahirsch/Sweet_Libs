@@ -12,18 +12,15 @@ from .models import Choice
 
 # Create your views here.
 class HomePageView(TemplateView):
-    def get(self, request, **kwargs):
-    	questions = Question.objects.all()
-        return render(request, 'index.html', {'Question' : questions})
+	def get(self, request, **kwargs):
+		questions = Question.objects.all()
+		return render(request, 'index.html', {'Question' : questions})
 
 # Add this view
 class AboutPageView(TemplateView):
-    template_name = "about.html"
-
-
+	template_name = "about.html"
 class PollPageView(TemplateView):
-    template_name = "poll.html"
+	template_name = "poll.html"
 
 class ResultsPageView(TemplateView):
     template_name = "results.html"
-
