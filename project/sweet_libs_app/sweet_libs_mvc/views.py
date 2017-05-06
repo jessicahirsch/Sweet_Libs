@@ -13,9 +13,10 @@ from .models import Choice
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        questions = Question.objects.all()
-            return render(request, 'index.html', {'Question' : questions})
+    	questions = Question.objects.all()
+        return render(request, 'index.html', {'Question' : questions})
 
+# Add this view
 class AboutPageView(TemplateView):
     template_name = "about.html"
 
