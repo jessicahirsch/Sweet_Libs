@@ -23,5 +23,4 @@ class PollPageView(TemplateView):
 	template_name = "poll.html"
 
 class ResultsPageView(TemplateView):
-	template_name = "results.html"
-
+    template_name = "results.html"
