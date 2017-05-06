@@ -14,19 +14,20 @@ from .models import Choice
 class HomePageView(TemplateView):
 	def get(self, request, **kwargs):
 		questions = Question.objects.all()
-		id = request.GET.get("id")
-		return render(request, 'index.html', {'id' : id})
+		return render(request, 'index.html', {'questions' : questions})
 
 class PollPageView(TemplateView):
 	template_name = "poll.html"
 	def get(self, request, **kwargs):
-		questions = Question.objects.all()
 		id = request.GET.get("id")
-		return render(request, 'poll.html', {'id' : id})
+		question = Question.objects.filter(id=id)
+		choice = Choice.objects.filter(question_id=id)
+		return render(request, 'poll.html', {'choice' : choice})
 
 class ResultsPageView(TemplateView):
     template_name = "results.html"
     def get(self, request, **kwargs):
 		id = request.GET.get("id")
-		question = Question.objects.filter(id=1)
+		question = Question.objects.filter(id=id)
+		choice = Choice.objects.filter(question_id=id)
 		return render(request, 'results.html', {"question" : question})
