@@ -14,13 +14,19 @@ from .models import Choice
 class HomePageView(TemplateView):
 	def get(self, request, **kwargs):
 		questions = Question.objects.all()
-		return render(request, 'index.html', {'Question' : questions})
+		id = request.GET.get("id")
+		return render(request, 'index.html', {'id' : id})
 
-# Add this view
-class AboutPageView(TemplateView):
-	template_name = "about.html"
 class PollPageView(TemplateView):
 	template_name = "poll.html"
+	def get(self, request, **kwargs):
+		questions = Question.objects.all()
+		id = request.GET.get("id")
+		return render(request, 'poll.html', {'id' : id})
 
 class ResultsPageView(TemplateView):
     template_name = "results.html"
+    def get(self, request, **kwargs):
+		id = request.GET.get("id")
+		question = Question.objects.filter(id=1)
+		return render(request, 'results.html', {"question" : question})
