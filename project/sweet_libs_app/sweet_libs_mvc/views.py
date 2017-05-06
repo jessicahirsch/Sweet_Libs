@@ -22,8 +22,8 @@ class AboutPageView(TemplateView):
 
 
 class PollPageView(TemplateView):
-    template_name = "about.html"
+    template_name = "poll.html"
 
 class ResultsPageView(TemplateView):
-    template_name = "about.html"
+    template_name = "results.html"
 
