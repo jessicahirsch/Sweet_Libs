@@ -17,10 +17,6 @@ class HomePageView(TemplateView):
         return render(request, 'index.html', {'Question' : questions})
 
 # Add this view
-class AboutPageView(TemplateView):
-    template_name = "about.html"
-
-
 class PollPageView(TemplateView):
     template_name = "poll.html"
 
