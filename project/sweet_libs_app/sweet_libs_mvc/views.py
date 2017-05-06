@@ -14,7 +14,8 @@ from .models import Choice
 class HomePageView(TemplateView):
 	def get(self, request, **kwargs):
 		questions = Question.objects.all()
-		return render(request, 'index.html', {'Question' : questions})
+		request = request.GET.get('id', '')
+		return render(request, 'index.html', {'Question' : request})
 
 # Add this view
 class AboutPageView(TemplateView):
