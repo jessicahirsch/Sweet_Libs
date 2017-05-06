@@ -25,8 +25,11 @@
         </nav>
 
        <div class="container">
-         <div class="index_links"><a href="/results">Results</a><br></div>
-         <div class="index_links"><a href="/poll">Add Polls</a></div>
+       {% for question in questions %}
+       Poll Name: {{question.name}}
+         <div class="index_links"><a href="/polls?id={{ question.id }}">Take Poll</a></div>
+         <div class="index_links"><a href="/results?id={{ question.id }}">See Results</a><br></div><br>
+       {% endfor %}
        </div>
 
     </body>

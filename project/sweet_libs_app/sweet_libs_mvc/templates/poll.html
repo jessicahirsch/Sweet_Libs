@@ -1,6 +1,6 @@
 <!DOCTYPE html>
  <html>
-     <head>
+    <head>
          <meta charset="utf-8">
          <title>Poller!</title>
          <!-- http://materializecss.com/ -->
@@ -12,17 +12,29 @@
              background: url("http://wallpapercave.com/wp/4CWzZcW.png")
            }
          </style>
-     </head>
-     <body>
+    </head>
+    <body>
 
-       <nav>
-         <div class="nav-wrapper">
-           <a href="/" class="brand-logo">Home</a>
-           <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a href="/admin/">Login</a></li>
-           </ul>
-         </div>
-       </nav>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">Home</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/admin/">Login</a></li>
+          </ul>
+        </div>
+      </nav>
 
-     </body>
+      <div class="showing_poll">
+        {% for question in question %}
+          {{question.name}}:<br>
+        {% endfor %}
+       <form action="">
+        {% for choice in choice %}
+          <input name="choice" type="radio"></input>
+          <label for="choice">{{choice}}</label><br>
+        {% endfor %}
+      </form>
+      </div>
+
+    </body>
  </html>

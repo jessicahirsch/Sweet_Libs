@@ -1,16 +1,24 @@
 .container {
-   width: 400px;
-   height: 300px;
-   text-align: center;
-   font-size: 50px;
- }
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  font-size: 30px;
+}
 
- .container a:hover {
-   color: rgb(112, 0, 201);
-   cursor: pointer;
- }
+.container a:hover {
+  color: rgb(112, 0, 201);
+  cursor: pointer;
+}
 
- .nav-wrapper a:hover {
-   color: rgb(112, 0, 201);
-   cursor: pointer;
- }
+.nav-wrapper a:hover {
+  color: rgb(112, 0, 201);
+  cursor: pointer;
+}
+
+.showing_poll {
+  color: white;
+  width: 400px;
+  height: 300px;
+  text-align: left;
+  font-size: 30px;
+}
