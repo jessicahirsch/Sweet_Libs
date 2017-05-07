@@ -6,9 +6,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from django.views.generic import TemplateView
-
-from .models import Question
-from .models import Choice
+from django.http import HttpResponseRedirect
+from django import forms
 
 # Create your views here.
 class HomePageView(TemplateView):
@@ -31,3 +30,6 @@ class ResultsPageView(TemplateView):
 		question = Question.objects.filter(id=id)
 		choice = Choice.objects.filter(question_id=id)
 		return render(request, 'results.html', {"question" : question, "choice" : choice})
+
+# class PollForm(forms.Form):
+#     choice = forms.ChoiceField(required=False, widget=forms.RadioSelect)
