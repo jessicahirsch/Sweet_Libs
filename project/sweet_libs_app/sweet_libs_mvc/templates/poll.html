@@ -36,5 +36,26 @@
       </form>
       </div>
 
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action= "" method="post">
+{% csrf_token %}
+{% for choice in choice %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+
+{% if ty_message %}<p><strong>{{ ty_message }}</strong></p>{% endif %}
+
+
+
+{{response}}
+{{request}}
+
     </body>
  </html>
