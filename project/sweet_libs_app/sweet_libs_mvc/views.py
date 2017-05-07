@@ -25,9 +25,9 @@ class PollPageView(TemplateView):
 		return render(request, 'poll.html', {'choice' : choice, 'question': question})
 
 class ResultsPageView(TemplateView):
-    template_name = "results.html"
-    def get(self, request, **kwargs):
+	template_name = "results.html"
+	def get(self, request, **kwargs):
 		id = request.GET.get("id")
 		question = Question.objects.filter(id=id)
 		choice = Choice.objects.filter(question_id=id)
-		return render(request, 'results.html', {"question" : question})
+		return render(request, 'results.html', {"question" : question, "choice" : choice})
