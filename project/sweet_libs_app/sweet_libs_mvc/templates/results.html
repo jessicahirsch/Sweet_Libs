@@ -50,7 +50,7 @@ polyline{
 
 </style>
 <body>
-<button class="randomize">randomize</button>
+<!-- <button class="randomize">randomize</button> -->
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -90,9 +90,12 @@ var key = function(d){ return d.data.label; };
 // var tableData = JSON.parse('{{choice}}')
 // console.lg(tableData)
 var arrayOfChoices = []
+var arrayOfVotes = []
 {% for choice in choice %}
 arrayOfChoices.push('{{choice.choice_text}}')
+arrayOfVotes.push({{choice.votes}})
 {% endfor %}
+console.log(arrayOfVotes)
 var color = d3.scale.ordinal()
 	.domain(arrayOfChoices)
 	.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
