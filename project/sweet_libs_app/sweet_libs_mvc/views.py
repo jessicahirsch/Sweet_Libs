@@ -22,7 +22,7 @@ class PollPageView(TemplateView):
 		id = request.GET.get("id")
 		question = Question.objects.filter(id=id)
 		choice = Choice.objects.filter(question_id=id)
-		return render(request, 'poll.html', {'choice' : choice})
+		return render(request, 'poll.html', {'choice' : choice, 'question': question})
 
 class ResultsPageView(TemplateView):
 	template_name = "results.html"
