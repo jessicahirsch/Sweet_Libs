@@ -35,9 +35,11 @@
         {% endfor %}
       </form> -->
 
-
 <div class="showing_poll">
-<h1>{{ question.question_text }}</h1>
+
+<h1>{% for question in question %}
+{{ question }}
+{% endfor %}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -53,10 +55,5 @@
 {% if ty_message %}<p><strong>{{ ty_message }}</strong></p>{% endif %}
 </div>
 
-
-
-{{response}}
-{{request}}
-
-    </body>
+</body>
  </html>
