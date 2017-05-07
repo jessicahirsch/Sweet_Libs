@@ -25,8 +25,7 @@
         </div>
       </nav>
 
-      <div class="showing_poll">
-        {% for question in question %}
+<!--         {% for question in question %}
           {{question.name}}:<br>
         {% endfor %}
        <form action="">
@@ -34,10 +33,10 @@
           <input name="choice" type="radio"></input>
           <label for="choice">{{choice}}</label><br>
         {% endfor %}
-      </form>
-      </div>
+      </form> -->
 
 
+<div class="showing_poll">
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -52,6 +51,7 @@
 </form>
 
 {% if ty_message %}<p><strong>{{ ty_message }}</strong></p>{% endif %}
+</div>
 
 
 
