@@ -30,4 +30,4 @@ class ResultsPageView(TemplateView):
 		id = request.GET.get("id")
 		question = Question.objects.filter(id=id)
 		choice = Choice.objects.filter(question_id=id)
-		return render(request, 'results.html', {"question" : question})
+		return render(request, 'results.html', {"question" : question, "choice" : choice})
