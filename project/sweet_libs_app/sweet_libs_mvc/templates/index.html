@@ -26,7 +26,7 @@
 
        <div class="container">
        {% for question in questions %}
-       Poll Name: {{question.name}}
+       <strong>Poll Name:</strong><br>{{question.name}}
          <div class="index_links"><a href="/polls?id={{ question.id }}">Take Poll</a></div>
          <div class="index_links"><a href="/results?id={{ question.id }}">See Results</a><br></div><br>
        {% endfor %}
