@@ -21,3 +21,33 @@
   height: 300px;
   font-size: 20px;
 }
+
+.poll-container{
+  background-color: white;
+  width: 400px;
+  margin: auto;
+}
+
+.poll-text{
+  margin:auto;
+  text-align: center;
+  font-family: 'Fauna One', serif;
+  font-size: 24px;
+  color: white;
+}
+
+.select-container{
+  display: inline-block;
+  margin: auto;
+  width:45%;
+}
+
+.poll-container{
+  display: block;
+  margin: auto;
+  width:60%;
+}
+
+.chart{
+  height: 500px;
+}

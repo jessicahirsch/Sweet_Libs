@@ -1,29 +1,29 @@
 <!DOCTYPE html>
- <html>
-    <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-         <meta charset="utf-8">
-         <title>Poller!</title>
-         <!-- http://materializecss.com/ -->
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-         <link rel="stylesheet" type="text/css" href="/static/style.css">
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-         <style media="screen">
-           body {
-             background: url("http://wallpapercave.com/wp/4CWzZcW.png")
-           }
-         </style>
-    </head>
-    <body>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  <title>Poller!</title>
+  <!-- http://materializecss.com/ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <style media="screen">
+   body {
+     background: url("http://wallpapercave.com/wp/4CWzZcW.png")
+   }
+ </style>
+</head>
+<body>
 
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">Home</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/admin/">Login</a></li>
-          </ul>
-        </div>
-      </nav>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Home</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/admin/">Login</a></li>
+      </ul>
+    </div>
+  </nav>
 
 <!--         {% for question in question %}
           {{question.name}}:<br>
@@ -34,26 +34,35 @@
           <label for="choice">{{choice}}</label><br>
         {% endfor %}
       </form> -->
+      <br>
+      <div class="poll-container card-panel teal lighten-2">
+        <!-- <div class="showing_poll"> -->
 
-<div class="showing_poll">
+       {% for question in question %}
+          <div class="poll-text">{{ question }}
+          <br>
+          {{ question.question_text }}</div>
+          {% endfor %}
 
-<h1>{% for question in question %}
-{{ question }}
-{% endfor %}</h1>
+          {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+          <form action= "" method="post">
+            {% csrf_token %}
+            {% for choice in choice %}
+            <br>
+            <div class="poll-container btn-large waves-effect waves-light teal lighten-5">
+              <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+              <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br/>
+            </div>
+            {% endfor %}
+            <br>
+            <div class="poll-container btn-large waves-effect waves-light red lighten-1">
+             <input type="submit" value="Vote" />
+             </div>
+          </form>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+          {% if ty_message %}<p><strong>{{ ty_message }}</strong></p>{% endif %}
+        </div>
+        <!-- </div> -->
 
-<form action= "" method="post">
-{% csrf_token %}
-{% for choice in choice %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
-
-{% if ty_message %}<p><strong>{{ ty_message }}</strong></p>{% endif %}
-</div>
-
-</body>
- </html>
+      </body>
+      </html>

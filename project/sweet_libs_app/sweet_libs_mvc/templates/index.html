@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Poller!</title>
-        <!-- http://materializecss.com/ -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-        <link rel="stylesheet" type="text/css" href="/static/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-        <style media="screen">
-          body {
-            background: url("http://wallpapercave.com/wp/4CWzZcW.png")
-          }
-        </style>
-    </head>
+<head>
+  <meta charset="utf-8">
+  <title>Poller!</title>
+  <!-- http://materializecss.com/ -->
+<link href="https://fonts.googleapis.com/css?family=Fauna+One" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+  <style media="screen">
+    body {
+      background: url("http://wallpapercave.com/wp/4CWzZcW.png")
+    }
+  </style>
+</head>
 
-     <body>
-        <nav>
-          <div class="nav-wrapper">
-           <a href="/" class="brand-logo">Home</a>
-              <ul id="nav-mobile" class="right hide-on-med-and-down">
-                 <li><a href="/admin/">Login</a></li>
-              </ul>
-          </div>
-        </nav>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+     <a href="/" class="brand-logo">Home</a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+       <li><a href="/admin/">Login</a></li>
+     </ul>
+   </div>
+ </nav>
 
-       <div class="container">
-       {% for question in questions %}
-       <strong>Poll Name:</strong><br>{{question.name}}
-         <div class="index_links"><a href="/polls?id={{ question.id }}">Take Poll</a></div>
-         <div class="index_links"><a href="/results?id={{ question.id }}">See Results</a><br></div><br>
-       {% endfor %}
-       </div>
+ <br>
 
 
+   {% for question in questions %}
+    <div class="poll-container card-panel teal lighten-2">
+   <!-- <div class="index_links btn-large waves-effect waves-light"> -->
+   <div class="poll-text"><strong>{{question.name}}</strong></div>
+   <br>
+   <div>
+     <div class="select-container btn-large waves-effect waves-light teal lighten-5">
+       <a href="/polls?id={{ question.id }}">Take Poll</a>
+     </div>
+     <div class="select-container btn-large waves-effect waves-light teal lighten-5">
+       <a href="/results?id={{ question.id }}">See Results</a>
+     </div>
+   </div>
+   <!-- </div> -->
+    </div><br>
+   {% endfor %}
 
-    </body>
+
+
+
+</body>
 </html>
