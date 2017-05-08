@@ -29,6 +29,7 @@
 
 
    {% for question in questions %}
+   <div class="col 12">
     <div class="poll-container card-panel teal lighten-2">
    <!-- <div class="index_links btn-large waves-effect waves-light"> -->
    <div class="poll-text"><strong>{{question.name}}</strong></div>
@@ -40,6 +41,7 @@
      <div class="select-container btn-large waves-effect waves-light teal lighten-5">
        <a href="/results?id={{ question.id }}">See Results</a>
      </div>
+   </div>
    </div>
    <!-- </div> -->
     </div><br>

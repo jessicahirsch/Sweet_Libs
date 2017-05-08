@@ -38,10 +38,10 @@
       <div class="poll-container card-panel teal lighten-2">
         <!-- <div class="showing_poll"> -->
 
-       {% for question in question %}
-          <div class="poll-text">{{ question }}
+        {% for question in question %}
+        <strong><div class="poll-text">{{ question }}</strong>
           <br>
-          {{ question.question_text }}</div>
+          <strong>{{ question.question_text }}</strong></div>
           {% endfor %}
 
           {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
